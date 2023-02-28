@@ -9,8 +9,11 @@ export class FoodService {
 
   constructor() { }
 
-  getAll():Food[]{
+  getAll(): Food[] {
     return sample_foods
+  };
 
+  getAllFoodsBySearchterms(searchTerm: string): Food[] {
+    return this.getAll().filter(food => food.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
   }
 }
